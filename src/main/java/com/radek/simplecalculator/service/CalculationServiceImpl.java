@@ -18,6 +18,9 @@ public class CalculationServiceImpl implements CalculationService {
 
     @Override
     public BigDecimal division(BigDecimal firstNumber, BigDecimal secondNumber) {
+        if (secondNumber.equals(BigDecimal.ZERO)){
+            throw new IllegalArgumentException("You can't divide by zero");
+        }
         return firstNumber.divide(secondNumber, 2);
     }
 
