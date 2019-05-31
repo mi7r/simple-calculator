@@ -7,9 +7,7 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
-public class Operation {
+public class OperationResult {
 
-    BigDecimal firstNumber;
-    BigDecimal secondNumber;
     BigDecimal result;
 }

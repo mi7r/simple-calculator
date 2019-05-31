@@ -2,6 +2,8 @@ package com.radek.simplecalculator.controller;
 
 import com.radek.simplecalculator.service.CalculationService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,34 +20,34 @@ public class OperationController {
         this.calculationService = calculationService;
     }
 
-    @GetMapping("calc/{firstNumber}/add/{secondNumber}")
-    public String addition(@PathVariable BigDecimal firstNumber, @PathVariable BigDecimal secondNumber) {
-        return calculationService.addition(firstNumber, secondNumber).toString();
+    @GetMapping(value = "/{firstNumber}/add/{secondNumber}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<BigDecimal> addition(@PathVariable BigDecimal firstNumber, @PathVariable BigDecimal secondNumber) {
+        return ResponseEntity.ok().body(calculationService.addition(firstNumber, secondNumber));
     }
 
-    @GetMapping("calc/{firstNumber}/sub/{secondNumber}")
-    public String subtraction(@PathVariable BigDecimal firstNumber, @PathVariable BigDecimal secondNumber) {
-        return calculationService.subtraction(firstNumber, secondNumber).toString();
+    @GetMapping(value = "/{firstNumber}/sub/{secondNumber}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<BigDecimal> subtraction(@PathVariable BigDecimal firstNumber, @PathVariable BigDecimal secondNumber) {
+        return ResponseEntity.ok().body(calculationService.subtraction(firstNumber, secondNumber));
     }
 
-    @GetMapping("calc/{firstNumber}/div/{secondNumber}")
-    public String division(@PathVariable BigDecimal firstNumber, @PathVariable BigDecimal secondNumber) {
-        return calculationService.division(firstNumber, secondNumber).toString();
+    @GetMapping("/{firstNumber}/div/{secondNumber}")
+    public ResponseEntity<BigDecimal> division(@PathVariable BigDecimal firstNumber, @PathVariable BigDecimal secondNumber) {
+        return ResponseEntity.ok().body(calculationService.division(firstNumber, secondNumber));
     }
 
-    @GetMapping("calc/{firstNumber}/mul/{secondNumber}")
-    public String multiplication(@PathVariable BigDecimal firstNumber, @PathVariable BigDecimal secondNumber) {
-        return calculationService.multiplication(firstNumber, secondNumber).toString();
+    @GetMapping("/{firstNumber}/mul/{secondNumber}")
+    public ResponseEntity<BigDecimal> multiplication(@PathVariable BigDecimal firstNumber, @PathVariable BigDecimal secondNumber) {
+        return ResponseEntity.ok().body(calculationService.multiplication(firstNumber, secondNumber));
     }
 
-    @GetMapping("calc/{firstNumber}/exp}")
-    public String exponentiation(@PathVariable BigDecimal firstNumber) {
-        return calculationService.exponentiation(firstNumber).toString();
+    @GetMapping("/{firstNumber}/exp}")
+    public ResponseEntity<BigDecimal> exponentiation(@PathVariable BigDecimal firstNumber) {
+        return ResponseEntity.ok().body(calculationService.exponentiation(firstNumber));
     }
 
-    @GetMapping("calc/{firstNumber}/sub/{index}")
-    public String customExponentiation(@PathVariable BigDecimal firstNumber, @PathVariable Integer index) {
-        return calculationService.customExponentiation(firstNumber, index).toString();
+    @GetMapping("/{firstNumber}/exp/{index}")
+    public ResponseEntity<BigDecimal> customExponentiation(@PathVariable BigDecimal firstNumber, @PathVariable Integer index) {
+        return ResponseEntity.ok().body(calculationService.customExponentiation(firstNumber, index));
     }
 
 
