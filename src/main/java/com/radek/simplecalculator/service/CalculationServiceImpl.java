@@ -1,5 +1,6 @@
 package com.radek.simplecalculator.service;
 
+import com.radek.simplecalculator.exception.ArithmeticException;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -18,7 +19,11 @@ public class CalculationServiceImpl implements CalculationService {
 
     @Override
     public BigDecimal division(BigDecimal firstNumber, BigDecimal secondNumber) {
-        return firstNumber.divide(secondNumber, 4, BigDecimal.ROUND_CEILING);
+        try {
+            return firstNumber.divide(secondNumber, 4, BigDecimal.ROUND_CEILING);
+        } catch (RuntimeException ex) {
+            throw new ArithmeticException("You can not divide by zero");
+        }
     }
 
     @Override

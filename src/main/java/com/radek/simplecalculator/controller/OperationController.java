@@ -20,12 +20,12 @@ public class OperationController {
         this.calculationService = calculationService;
     }
 
-    @GetMapping(value = "/{firstNumber}/add/{secondNumber}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/{firstNumber}/add/{secondNumber}")
     public ResponseEntity<BigDecimal> addition(@PathVariable BigDecimal firstNumber, @PathVariable BigDecimal secondNumber) {
         return ResponseEntity.ok().body(calculationService.addition(firstNumber, secondNumber));
     }
 
-    @GetMapping(value = "/{firstNumber}/sub/{secondNumber}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/{firstNumber}/sub/{secondNumber}")
     public ResponseEntity<BigDecimal> subtraction(@PathVariable BigDecimal firstNumber, @PathVariable BigDecimal secondNumber) {
         return ResponseEntity.ok().body(calculationService.subtraction(firstNumber, secondNumber));
     }
