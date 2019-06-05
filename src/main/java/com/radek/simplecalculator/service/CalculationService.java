@@ -12,7 +12,5 @@ public interface CalculationService {
 
     BigDecimal multiplication(BigDecimal firstNumber,BigDecimal secondNumber);
 
-    BigDecimal exponentiation(BigDecimal firstNumber);
-
-    BigDecimal customExponentiation(BigDecimal firstNumber, Integer index);
+    BigDecimal exponentiation(BigDecimal firstNumber, Integer index);
 }

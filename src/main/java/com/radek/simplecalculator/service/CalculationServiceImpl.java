@@ -32,12 +32,7 @@ public class CalculationServiceImpl implements CalculationService {
     }
 
     @Override
-    public BigDecimal exponentiation(BigDecimal firstNumber) {
-        return firstNumber.pow(2);
-    }
-
-    @Override
-    public BigDecimal customExponentiation(BigDecimal firstNumber, Integer index) {
+    public BigDecimal exponentiation(BigDecimal firstNumber, Integer index) {
         return firstNumber.pow(index);
     }
 }

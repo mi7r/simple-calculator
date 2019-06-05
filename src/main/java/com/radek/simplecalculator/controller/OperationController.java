@@ -40,14 +40,9 @@ public class OperationController {
         return ResponseEntity.ok().body(calculationService.multiplication(firstNumber, secondNumber));
     }
 
-    @GetMapping("/{firstNumber}/exp}")
-    public ResponseEntity<BigDecimal> exponentiation(@PathVariable BigDecimal firstNumber) {
-        return ResponseEntity.ok().body(calculationService.exponentiation(firstNumber));
-    }
-
     @GetMapping("/{firstNumber}/exp/{index}")
-    public ResponseEntity<BigDecimal> customExponentiation(@PathVariable BigDecimal firstNumber, @PathVariable Integer index) {
-        return ResponseEntity.ok().body(calculationService.customExponentiation(firstNumber, index));
+    public ResponseEntity<BigDecimal> exponentiation(@PathVariable BigDecimal firstNumber, @PathVariable Integer index) {
+        return ResponseEntity.ok().body(calculationService.exponentiation(firstNumber, index));
     }
 
 
