@@ -1,5 +1,6 @@
 package com.radek.simplecalculator.service;
 
+import com.radek.simplecalculator.domain.OperationModel;
 import com.radek.simplecalculator.exception.ArithmeticException;
 import org.springframework.stereotype.Service;
 
@@ -8,8 +9,8 @@ import java.math.BigDecimal;
 @Service
 public class CalculationServiceImpl implements CalculationService {
     @Override
-    public BigDecimal addition(BigDecimal firstNumber, BigDecimal secondNumber) {
-        return firstNumber.add(secondNumber);
+    public String addition(OperationModel model) {
+        return model.getFirstNumber().add(model.getSecondNumber()).toString();
     }
 
     @Override

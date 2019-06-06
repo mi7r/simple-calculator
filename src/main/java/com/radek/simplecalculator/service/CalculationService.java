@@ -1,10 +1,12 @@
 package com.radek.simplecalculator.service;
 
+import com.radek.simplecalculator.domain.OperationModel;
+
 import java.math.BigDecimal;
 
 public interface CalculationService {
 
-    BigDecimal addition (BigDecimal firstNumber, BigDecimal secondNumber);
+    String addition (OperationModel model);
 
     BigDecimal subtraction(BigDecimal firstNumber,BigDecimal secondNumber);
 

@@ -1,12 +1,13 @@
 package com.radek.simplecalculator.controller;
 
+import com.radek.simplecalculator.domain.OperationModel;
 import com.radek.simplecalculator.service.CalculationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 
@@ -14,15 +15,29 @@ import java.math.BigDecimal;
 @Controller
 public class OperationController {
 
+    OperationModel operationModel = new OperationModel();
+
+    private static final String CALCULATOR_VALUE = "/calculator";
+    private static final String CALCULATOR_RETURN = "calculator";
+
+
     private final CalculationService calculationService;
 
     public OperationController(CalculationService calculationService) {
         this.calculationService = calculationService;
     }
 
-    @GetMapping(value = "/{firstNumber}/add/{secondNumber}")
-    public ResponseEntity<BigDecimal> addition(@PathVariable BigDecimal firstNumber, @PathVariable BigDecimal secondNumber) {
-        return ResponseEntity.ok().body(calculationService.addition(firstNumber, secondNumber));
+    @RequestMapping(CALCULATOR_VALUE)
+    public String getCalculator(Model model) {
+        model.addAttribute("operationModel", operationModel);
+        return CALCULATOR_RETURN;
+    }
+
+    @RequestMapping(value = CALCULATOR_VALUE, params = "addition", method = RequestMethod.POST)
+    public String addition(@ModelAttribute("operationModel") OperationModel operationModel, Model model) {
+        model.addAttribute("outcome", calculationService.addition(operationModel));
+        log.info("addition result: " + calculationService.addition(operationModel));
+        return CALCULATOR_RETURN;
     }
 
     @GetMapping(value = "/{firstNumber}/sub/{secondNumber}")
