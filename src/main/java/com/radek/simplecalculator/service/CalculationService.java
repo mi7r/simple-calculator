@@ -2,17 +2,15 @@ package com.radek.simplecalculator.service;
 
 import com.radek.simplecalculator.domain.OperationModel;
 
-import java.math.BigDecimal;
-
 public interface CalculationService {
 
     String addition (OperationModel model);
 
-    BigDecimal subtraction(BigDecimal firstNumber,BigDecimal secondNumber);
+    String subtraction(OperationModel model);
 
-    BigDecimal division(BigDecimal firstNumber,BigDecimal secondNumber);
+    String division(OperationModel model);
 
-    BigDecimal multiplication(BigDecimal firstNumber,BigDecimal secondNumber);
+    String multiplication(OperationModel model);
 
-    BigDecimal exponentiation(BigDecimal firstNumber, Integer index);
+    String exponentiation(OperationModel model);
 }

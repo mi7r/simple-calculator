@@ -14,26 +14,26 @@ public class CalculationServiceImpl implements CalculationService {
     }
 
     @Override
-    public BigDecimal subtraction(BigDecimal firstNumber, BigDecimal secondNumber) {
-        return firstNumber.subtract(secondNumber);
+    public String subtraction(OperationModel model) {
+        return model.getFirstNumber().subtract(model.getSecondNumber()).toString();
     }
 
     @Override
-    public BigDecimal division(BigDecimal firstNumber, BigDecimal secondNumber) {
+    public String division(OperationModel model) {
         try {
-            return firstNumber.divide(secondNumber, 4, BigDecimal.ROUND_CEILING);
+            return model.getFirstNumber().divide(model.getSecondNumber(), 4, BigDecimal.ROUND_CEILING).toString();
         } catch (RuntimeException ex) {
             throw new ArithmeticException("You can not divide by zero");
         }
     }
 
     @Override
-    public BigDecimal multiplication(BigDecimal firstNumber, BigDecimal secondNumber) {
-        return firstNumber.multiply(secondNumber);
+    public String multiplication(OperationModel model) {
+        return model.getFirstNumber().multiply(model.getSecondNumber()).toString();
     }
 
     @Override
-    public BigDecimal exponentiation(BigDecimal firstNumber, Integer index) {
-        return firstNumber.pow(index);
+    public String exponentiation(OperationModel model) {
+        return model.getFirstNumber().pow(model.getSecondNumber().intValue()).toString();
     }
 }
