@@ -4,42 +4,60 @@
     <meta charset="UTF-8">
     <title>Simple Calculator</title>
     <link rel="stylesheet" href="/main.css"/>
+<style>
+    body{
+        background-color: azure;
+        font-family: Ubuntu;
 
+    }
+    .button{
+        font-family: Ubuntu;
+        color: tomato;
+    }
+    .container-fluid{
+        align-content: center;
+        max-width: 500px;
+    }
+    div{
+        align-content: center;
+    }
+</style>
 </head>
-<body bgcolor="#7fffd4">
-<h1>simple calculator</h1>
+<body>
+<h2>SIMPLE CALCULATOR</h2>
 
-<div class="col-md-3">
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="center">
+            <div class="col-md-3 col-md-offset-9">
+                <form action="#" th:action="@{/calculator}" th:object="${operationModel}" method="post">
 
+                    <h3>two numbers calculations</h3>
+                    <p>
+                        <input type="text" placeholder="first number" th:field="*{firstNumber}"><br>
+                        <input type="text" placeholder="second number" th:field="*{secondNumber}"><br>
+                        <br>
+                        <input type="submit" class="button" name="addition" value="+"/>
+                        <input type="submit" class="button" name="subtraction" value="-"/>
+                        <input type="submit" class="button" name="multiplication" value="*"/>
+                        <input type="submit" class="button" name="division" value="/"/>
+                        <input type="submit" class="button" name="exponentiation" value="^"/>
+                        <input type="submit" class="button" name="clear" value="C"/>
+                    </p>
 
-    <form action="#" th:action="@{/calculator}" th:object="${operationModel}" method="post">
-        <h2>Two numbers calculations</h2>
-        <p>
-            <input type="text" placeholder="first number" th:field="*{firstNumber}"><br>
-            <input type="text" placeholder="second number" th:field="*{secondNumber}"><br>
-            <br>
-            <input type="submit" class="button" name="addition" value="+"/>
-            <input type="submit" class="button" name="subtraction" value="-"/>
-            <input type="submit" class="button" name="multiplication" value="*"/>
-            <input type="submit" class="button" name="division" value="/"/>
-            <input type="submit" class="button" name="exponentiation" value="^"/>
-            <input type="submit" class="button" name="clear" value="C"/>
-        </p>
-        <h2>Single number calculations</h2>
-        <p>
-            <input type="text" placeholder="single number" th:field="*{singleNumber}"><br>
-            <br>
-            <input type="submit" class="button" name="squareRoot" value="&#8730"/>
-            <input type="submit" class="button" name="clear" value="C"/>
+                    <h3>single number calculations</h3>
+                    <p>
+                        <input type="text" placeholder="single number" th:field="*{singleNumber}"><br>
+                        <br>
+                        <input type="submit" class="button" name="squareRoot" value="&#8730"/>
+                        <input type="submit" class="button" name="clear" value="C"/>
+                    </p>
 
-        </p>
-
-        <h3><p th:text="'result: '+ ${calcResult}"></p></h3>
-
-
-    </form>
+                    <h3><p th:text="'RESULT: '+ ${calcResult}"></p></h3>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
-
 </body>
 </html>

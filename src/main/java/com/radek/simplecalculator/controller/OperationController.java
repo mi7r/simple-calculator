@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+
 @Slf4j
 @Controller
 public class OperationController {
@@ -28,6 +30,7 @@ public class OperationController {
     @RequestMapping(CALCULATOR_VALUE)
     public String getCalculator(Model model) {
         model.addAttribute(OPERATION_MODEL_VALUE, operationModel);
+        model.addAttribute(OUTCOME_VALUE, BigDecimal.ZERO);
         return CALCULATOR_RETURN;
     }
 
@@ -65,7 +68,6 @@ public class OperationController {
     public String squareRoot(@ModelAttribute(OPERATION_MODEL_VALUE) OperationModel operationModel, Model model){
         model.addAttribute(OUTCOME_VALUE, calculationService.squareRoot(operationModel));
         return CALCULATOR_RETURN;
-
     }
 
 
