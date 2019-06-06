@@ -3,10 +3,7 @@ package com.radek.simplecalculator.service;
 import com.radek.simplecalculator.domain.OperationModel;
 import com.radek.simplecalculator.exception.ArithmeticException;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 import java.math.MathContext;
-import java.math.RoundingMode;
 
 @Service
 public class CalculationServiceImpl implements CalculationService {
@@ -37,5 +34,10 @@ public class CalculationServiceImpl implements CalculationService {
     @Override
     public String exponentiation(OperationModel model) {
         return model.getFirstNumber().pow(model.getSecondNumber().intValue()).toString();
+    }
+
+    @Override
+    public String squareRoot(OperationModel model) {
+        return Double.toString(Math.sqrt(model.getSingleNumber().doubleValue()));
     }
 }

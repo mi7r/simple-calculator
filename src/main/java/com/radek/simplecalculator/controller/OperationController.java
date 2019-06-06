@@ -16,7 +16,7 @@ public class OperationController {
     private static final String CALCULATOR_VALUE = "/calculator";
     private static final String CALCULATOR_RETURN = "calculator";
     private static final String OPERATION_MODEL_VALUE = "operationModel";
-    private static final String OUTCOME_VALUE = "outcome";
+    private static final String OUTCOME_VALUE = "calcResult";
 
 
     private final CalculationService calculationService;
@@ -59,6 +59,13 @@ public class OperationController {
     public String exponentiation(@ModelAttribute(OPERATION_MODEL_VALUE) OperationModel operationModel, Model model){
         model.addAttribute(OUTCOME_VALUE, calculationService.exponentiation(operationModel));
         return CALCULATOR_RETURN;
+    }
+
+    @PostMapping(value = CALCULATOR_VALUE, params = "squareRoot")
+    public String squareRoot(@ModelAttribute(OPERATION_MODEL_VALUE) OperationModel operationModel, Model model){
+        model.addAttribute(OUTCOME_VALUE, calculationService.squareRoot(operationModel));
+        return CALCULATOR_RETURN;
+
     }
 
 

@@ -9,23 +9,36 @@
 <body bgcolor="#7fffd4">
 <h1>simple calculator</h1>
 
-<form action="#" th:action="@{/calculator}" th:object="${operationModel}" method="post">
-    <input type="text" th:field="*{firstNumber}"><br>
-    <input type="text" th:field="*{secondNumber}"><br>
-    <p>
-        <input type="submit" class="button" name="addition" value="+"/>
-        <input type="submit" class="button" name="subtraction" value="-"/>
-        <input type="submit" class="button" name="division" value="/"/>
-        <input type="submit" class="button" name="multiplication" value="*"/>
-        <input type="submit" class="button" name="exponentiation" value="^"/>
-        <input type="submit" class="button" name="clear" value="C"/>
-    </p>
-    <input type="text" th:field="*{result}">
-
-    <h1><p th:text="'result: '+ ${outcome}"></p></h1>
+<div class="col-md-3">
 
 
-</form>
+    <form action="#" th:action="@{/calculator}" th:object="${operationModel}" method="post">
+        <h2>Two numbers calculations</h2>
+        <p>
+            <input type="text" placeholder="first number" th:field="*{firstNumber}"><br>
+            <input type="text" placeholder="second number" th:field="*{secondNumber}"><br>
+            <br>
+            <input type="submit" class="button" name="addition" value="+"/>
+            <input type="submit" class="button" name="subtraction" value="-"/>
+            <input type="submit" class="button" name="multiplication" value="*"/>
+            <input type="submit" class="button" name="division" value="/"/>
+            <input type="submit" class="button" name="exponentiation" value="^"/>
+            <input type="submit" class="button" name="clear" value="C"/>
+        </p>
+        <h2>Single number calculations</h2>
+        <p>
+            <input type="text" placeholder="single number" th:field="*{singleNumber}"><br>
+            <br>
+            <input type="submit" class="button" name="squareRoot" value="&#8730"/>
+            <input type="submit" class="button" name="clear" value="C"/>
+
+        </p>
+
+        <h3><p th:text="'result: '+ ${calcResult}"></p></h3>
+
+
+    </form>
+</div>
 
 
 </body>

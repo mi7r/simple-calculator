@@ -13,4 +13,6 @@ public interface CalculationService {
     String multiplication(OperationModel model);
 
     String exponentiation(OperationModel model);
+
+    String squareRoot(OperationModel model);
 }

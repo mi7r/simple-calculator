@@ -12,7 +12,7 @@ public class OperationModel {
     private String operation;
     private BigDecimal firstNumber;
     private BigDecimal secondNumber;
-    private BigDecimal result;
+    private BigDecimal singleNumber;
 
     public OperationModel(BigDecimal firstNumber, BigDecimal secondNumber) {
         this.firstNumber = firstNumber;
