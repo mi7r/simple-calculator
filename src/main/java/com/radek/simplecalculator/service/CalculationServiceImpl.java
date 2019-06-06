@@ -5,6 +5,8 @@ import com.radek.simplecalculator.exception.ArithmeticException;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 
 @Service
 public class CalculationServiceImpl implements CalculationService {
@@ -21,7 +23,7 @@ public class CalculationServiceImpl implements CalculationService {
     @Override
     public String division(OperationModel model) {
         try {
-            return model.getFirstNumber().divide(model.getSecondNumber(), 4, BigDecimal.ROUND_CEILING).toString();
+            return model.getFirstNumber().divide(model.getSecondNumber(), MathContext.DECIMAL32).toString();
         } catch (RuntimeException ex) {
             throw new ArithmeticException("You can not divide by zero");
         }
