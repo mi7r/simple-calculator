@@ -39,6 +39,6 @@ public class CalculationServiceImpl implements CalculationService {
 
     @Override
     public String squareRoot(OperationModel model) {
-        return Double.toString(Math.sqrt(model.getSingleNumber().doubleValue()));
+        return String.valueOf(Math.sqrt(model.getSingleNumber().doubleValue()));
     }
 }
