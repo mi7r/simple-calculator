@@ -4,7 +4,6 @@ import com.radek.simplecalculator.domain.OperationModel;
 import com.radek.simplecalculator.exception.ArithmeticException;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.math.MathContext;
 
 @Service
@@ -24,7 +23,7 @@ public class CalculationServiceImpl implements CalculationService {
         try {
             return model.getFirstNumber().divide(model.getSecondNumber(), MathContext.DECIMAL32).toString();
         } catch (RuntimeException ex) {
-            throw new ArithmeticException("You can not divide by zero");
+            throw new ArithmeticException("You can not divide by zero.");
         }
     }
 

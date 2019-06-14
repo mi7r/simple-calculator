@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 public class OperationModel {
 
     private String operation;
+
     private BigDecimal firstNumber;
     private BigDecimal secondNumber;
     private BigDecimal singleNumber;
