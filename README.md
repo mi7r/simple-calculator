@@ -4,14 +4,14 @@ Simple calculator gives possibility to execute basic math calculations like addi
 
 Secondary feature is counting square root from given value.
 
-##Description
+## Description
 Simple Calculator is REST application.
 After Run just pass or click:
 http://localhost:8080/calculator
 
 Enjoy
 
-##Built with
+## Built with
 
 Application is build using:
 
@@ -20,6 +20,6 @@ Application is build using:
 * [Thymeleaf](https://www.thymeleaf.org/)
 * [Project Lombok](https://projectlombok.org/)
 
-##Authors
+## Authors
 
 **Radosław Michalski** [mi7r](https://github.com/mi7r/)
