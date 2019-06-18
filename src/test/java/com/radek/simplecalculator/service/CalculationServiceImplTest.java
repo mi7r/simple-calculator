@@ -39,7 +39,7 @@ public class CalculationServiceImplTest {
         OperationModel model = new OperationModel();
         model.setFirstNumber(new BigDecimal(2));
 
-        String result = calculationService.addition(model);
+        calculationService.addition(model);
     }
 
 
@@ -58,7 +58,7 @@ public class CalculationServiceImplTest {
         OperationModel model = new OperationModel();
         model.setSecondNumber(new BigDecimal(4));
 
-        String result = calculationService.subtraction(model);
+        calculationService.subtraction(model);
     }
 
     @Test
@@ -77,7 +77,7 @@ public class CalculationServiceImplTest {
         model.setFirstNumber(new BigDecimal(4));
         model.setSecondNumber(new BigDecimal(0));
 
-        String result = calculationService.division(model);
+        calculationService.division(model);
     }
 
     @Test
